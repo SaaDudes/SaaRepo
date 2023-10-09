@@ -1,6 +1,6 @@
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import Home from './screens/Home';
 import Settings from './screens/Settings';
 import { EventRegister } from 'react-native-event-listeners';
@@ -9,7 +9,7 @@ import theme from './theme/theme';
 import themeContext from './theme/themeContext';
 
 
-const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   const[darkMode, setDarkMode] = useState(false)
@@ -28,10 +28,10 @@ export default function App() {
   return (
     <themeContext.Provider value={darkMode === true ? theme.dark : theme.light}>
       <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Settings" component={Settings} />
-        </Tab.Navigator>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" options={{headerShown: false}} component={Home} />
+          <Stack.Screen name="Settings" component={Settings} />
+        </Stack.Navigator>
 
       </NavigationContainer>
 

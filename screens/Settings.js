@@ -15,6 +15,7 @@ const Settings = () => {
         onValueChange={(value) => {
           setDarkMode(value);
           EventRegister.emit('ChangeTheme',value)
+          
         }}
       
       

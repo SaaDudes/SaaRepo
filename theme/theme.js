@@ -3,12 +3,14 @@ const theme = {
     light: {
         theme:"light",
         color:"black",
-        background:"white"
+        background:"aqua",
+        bar:"dark"
     },
     dark:{
         theme:"dark",
         color:"white",
-        background:"black"
+        background:"black",
+        bar:"light"
     }
 }
 

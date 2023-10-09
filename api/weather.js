@@ -2,7 +2,7 @@ import axios from 'axios';
 import { apiKey } from '../constants';
 
 
-const forecastEndpoint = params=> `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Oulu&days=1&aqi=no&alerts=no` //replace "Oulu" and "days" with function name implemented in app->index.js
+const forecastEndpoint = params=> `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Oulu&days=1&aqi=no&alerts=no` //replace "Oulu" and "days" with function name implemented in home.js implemented later on...
 const locationsEndpoint = params=> `http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=Oulu`
 
 const apiCall = async (endpoint)=>{
