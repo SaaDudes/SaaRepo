@@ -34,10 +34,10 @@ $ npm start
 ##  Credits and Links
 This software uses the following open source packages:
 
-    [Node.js](https://nodejs.org/)
-    [React Native](https://reactnative.dev/docs/environment-setup)
-    [Expo](https://docs.expo.dev/)
-    [Weather API](https://www.weatherapi.com/)
-    [Async Storage](https://github.com/react-native-async-storage/async-storage)
-    [Icons](https://www.flaticon.com/)
+[Node.js](https://nodejs.org/)
+[React Native](https://reactnative.dev/docs/environment-setup)
+[Expo](https://docs.expo.dev/)
+[Weather API](https://www.weatherapi.com/)
+[Async Storage](https://github.com/react-native-async-storage/async-storage)
+[Icons](https://www.flaticon.com/)
 
