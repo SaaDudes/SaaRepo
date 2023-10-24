@@ -32,7 +32,6 @@ $ npm start
 ```
 
 ##  Credits and Links
-
 This software uses the following open source packages:
     - [Node.js] (https://nodejs.org/)
     - [React Native] (https://reactnative.dev/docs/environment-setup)
