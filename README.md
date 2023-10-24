@@ -2,7 +2,7 @@
 
 Fetch the latest weather forecast for your city or country!
 
-![](assets/images/oulu_light_theme.png = 300x)
+<img src="/assets/images/oulu_light_theme.png" alt="image" width="300" height="300">
 
 ## Key Features
     - Search for weather forecast with a country or city name.
