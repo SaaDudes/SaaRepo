@@ -2,7 +2,7 @@
 
 Fetch the latest weather forecast for your city or country!
 
-<img src="/assets/images/oulu_light_theme.png" alt="image" width="400" height="600">
+<img src="/assets/images/oulu_light_theme.png" alt="image" width="350" height="600">
 
 ## Key Features
     - Search for weather forecast with a country or city name.
@@ -40,4 +40,5 @@ This software uses the following open source packages:
 * [Weather API](https://www.weatherapi.com/)
 * [Async Storage](https://github.com/react-native-async-storage/async-storage)
 * [Icons](https://www.flaticon.com/)
+* [git](https://git-scm.com/)
 
