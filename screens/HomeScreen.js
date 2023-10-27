@@ -13,8 +13,7 @@ import { getData, storeData } from '../utils/asyncStorage';
 
 
 export default function HomeScreen() {
-  
-const [showSearch, toggleSearch] = useState(false);
+
 const [weather, setWeather] = useState({})
 const [locations, setLocations] = useState([]);
 
@@ -46,9 +45,10 @@ const handleLocation = (loc)=>{
       useEffect(()=>{
         fetchMyWeatherData();
       },[]);
-    
+
+    {/*What city will be always first on the screen */}
       const fetchMyWeatherData = async ()=>{
-        let myCity = await getData('city');
+        let myCity = await getData('country');
         let cityName = 'Oulu';
         if(myCity){
           cityName = myCity;
@@ -57,7 +57,6 @@ const handleLocation = (loc)=>{
           cityName,
           days: '7'
         }).then(data=>{
-          // console.log('got data: ',data.forecast.forecastday);
           setWeather(data);
         })
         
@@ -67,17 +66,17 @@ const handleLocation = (loc)=>{
     
       const {location, current} = weather;
 
-    return(
-  
-<View className="flex-1 relative">
+
+return( 
+<KeyboardAvoidingView className="flex-1 relative">
     <StatusBar style="light" />
     <Image source={theme.background} className="absolute h-full w-full" blurRadius={70}/>
-     {/* <Image blurRadius={70} source={require('../assets/images/darkBg.jpg')} className="absolute h-full w-full"/> */}
+     
    
     <SafeAreaView className="flex flex-1">
         
 
-        <View style={{top: 50}} className="mx-4 relative z-50">
+        <View style={{top: 30}} className="mx-4 relative z-50">
                 <View className="flex-row justify-end items-center rounded-full" style={{backgroundColor: theme.color2}}>
                 <TouchableOpacity style={{ left: 10}}onPress={() => nav.openDrawer()}>
                 <Icon name="format-list-bulleted" color={theme.color} size={35}/>
@@ -92,8 +91,9 @@ const handleLocation = (loc)=>{
                 <Icon name="magnify" color={theme.color} size={35} left={2}/>
                 </TouchableOpacity>
         </View>
+
+        {/*search bar handling */}
         {
-        
         locations.length>0 && (
         <View className="absolute w-full bg-gray-300 top-16 rounded-3xl ">
         {
@@ -114,10 +114,11 @@ const handleLocation = (loc)=>{
         </View>
         )
 }
-
-
 </View>
+
+
 <View style={{top: 30}} className= "mx-4 flex justify-around flex-1 mb-2">
+
     {/*Sää lokaatio */}
     <Text className= "text-center text-2xl font-bold" style={[{color:theme.color}]}>
             {location?.name},
@@ -126,6 +127,7 @@ const handleLocation = (loc)=>{
     
             </Text>
     </Text>
+    
     {/*Säätä kuvaava iconi */}
     <View className="flex-row justify-center">
     <Image source={weatherImages[current?.condition?.text || 'other']} className="w-52 h-52" />        
@@ -133,22 +135,23 @@ const handleLocation = (loc)=>{
 
     {/*Lämpötila celcius*/}
     <View className="space-y-2">
-            <Text className="text-center font-bold text-6xl ml-5" style={[{color:theme.color}]}>
+            <Text className="text-center font-bold text-5xl ml-5" style={[{color:theme.color}]}>
                     {current?.temp_c}&#176;
 
             </Text>
-            <Text className="text-center text-2xl ml-3 tracking-widest font-bold" style={[{color:theme.color}]}>
+            <Text className="text-center text-xl ml-3 tracking-widest font-bold" style={[{color:theme.color}]}>
                     {current?.condition?.text}
             </Text>
     </View>
+
     {/*Muut Arvot*/}
-    <View className="flex-row justify-between mx-4">
+    <View className="flex-row justify-between mx-4 py-7">
             <View className="flex-row space-x-2 items-center">
                     <Image source={require('../assets/icons/wind.png')} className="h-6 w-6" />
 
                     <Text className="font-semibold text-base" style={[{color:theme.color}]}>
                             {Math.trunc(current?.wind_kph * 1000 / 3600)}m/s
-                           {/** 1000 /3600}m/s laskukaava miten saada m/s.. löydä keino miten poistaa "jakojäännös"*/ }
+                           
                     </Text>
                    
             </View>
@@ -210,6 +213,6 @@ const handleLocation = (loc)=>{
                 </ScrollView>
       </View>
     </SafeAreaView>
-</View>
+</KeyboardAvoidingView>
   )
 }
