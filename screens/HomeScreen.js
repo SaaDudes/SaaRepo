@@ -14,6 +14,7 @@ import { getData, storeData } from '../utils/asyncStorage';
 
 export default function HomeScreen() {
 
+const [showSearch, toggleSearch] = useState([]);
 const [weather, setWeather] = useState({})
 const [locations, setLocations] = useState([]);
 
@@ -82,18 +83,17 @@ return(
                 <Icon name="format-list-bulleted" color={theme.color} size={35}/>
                 </TouchableOpacity>
                 
-                <TextInput 
+                <TextInput
                 onChangeText={handleTextDebounce}
-                
                 placeholder='Search City' placeholderTextColor={theme.color} className="pl-6 h-14 flex-1 text-base text-white"/>
-
-                <TouchableOpacity style={{backgroundColor: theme.color4}} className="rounded-full p-3 m-1">
+                <TouchableOpacity 
+                onPress={()=> toggleSearch(!showSearch)}
+                style={{backgroundColor: theme.color4}} className="rounded-full p-3 m-1">
                 <Icon name="magnify" color={theme.color} size={35} left={2}/>
                 </TouchableOpacity>
         </View>
-
-        {/*search bar handling */}
         {
+        showSearch? (
         locations.length>0 && (
         <View className="absolute w-full bg-gray-300 top-16 rounded-3xl ">
         {
@@ -113,9 +113,11 @@ return(
         }
         </View>
         )
+        ):null
 }
-</View>
 
+
+</View>
 
 <View style={{top: 30}} className= "mx-4 flex justify-around flex-1 mb-2">
 
